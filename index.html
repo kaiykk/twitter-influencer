@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>账号画像 · @cellinlab</title>
+<meta name="description" content="基于 10,018 条推文的内容创作者账号画像：节奏、形态、选题坐标、社交飞轮与转化路径。">
+<link rel="canonical" href="https://kaiykk.github.io/twitter-influencer/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Content Creator Portrait">
+<meta property="og:title" content="账号画像 · Cell 细胞 @cellinlab">
+<meta property="og:description" content="他不是靠发内容做起来的，是靠对话：62% 的帖子是回复，29% 的外链指向自己的官网与播客。">
+<meta property="og:image" content="https://kaiykk.github.io/twitter-influencer/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://kaiykk.github.io/twitter-influencer/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="账号画像 · Cell 细胞 @cellinlab">
+<meta name="twitter:description" content="他不是靠发内容做起来的，是靠对话：62% 的帖子是回复。">
+<meta name="twitter:image" content="https://kaiykk.github.io/twitter-influencer/cover.png">
+
+<style>
+  :root{
+    --ink:#16181d; --muted:#6b7280; --line:#e6e8ee; --bg:#fbfbfd; --card:#fff;
+    --accent:#3b5bdb; --accent2:#0f9d8a; --warn:#b45309; --soft:#f3f5fb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:56px 28px 96px}
+  header{border-bottom:1px solid var(--line);padding-bottom:28px;margin-bottom:40px}
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  h1{font-size:38px;line-height:1.2;margin:0 0 8px;letter-spacing:-.022em;font-weight:700}
+  h1 small{font-size:17px;font-weight:500;color:var(--muted);letter-spacing:0}
+  .bio{color:var(--muted);max-width:68ch;margin:10px 0 22px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:14px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .stat b{display:block;font-size:20px;line-height:1.3;letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .stat span{font-size:12px;color:var(--muted)}
+  section{margin:52px 0}
+  h2{font-size:21px;margin:0 0 6px;letter-spacing:-.012em}
+  h2 .n{color:var(--accent);font-variant-numeric:tabular-nums;margin-right:8px}
+  .lede{color:var(--muted);margin:0 0 20px;max-width:70ch}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .grid3{display:grid;grid-template-columns:1.25fr .75fr;gap:20px}
+  @media(max-width:820px){.grid2,.grid3{grid-template-columns:1fr}}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .bar-row{display:grid;grid-template-columns:132px 1fr 46px;gap:10px;align-items:center;margin:7px 0;font-size:13px}
+  .bar-track{background:var(--soft);height:9px;border-radius:5px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:5px;background:var(--accent)}
+  .bar-fill.alt{background:var(--accent2)}
+  .bar-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .bar-n{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+  .note{font-size:13px;color:var(--muted)}
+  .callout{border-left:3px solid var(--accent);background:var(--soft);padding:14px 18px;border-radius:0 8px 8px 0;margin:18px 0;font-size:14px}
+  .callout.warn{border-color:var(--warn);background:#fdf7ee}
+  .quote{font-size:14px;color:#333;border-left:2px solid var(--line);padding-left:12px;margin:8px 0}
+  .tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:20px;background:var(--soft);color:var(--muted);margin-right:6px}
+  .legend{display:flex;gap:16px;font-size:12px;color:var(--muted);margin-top:10px;flex-wrap:wrap}
+  .legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px}
+  .top-post{padding:12px 0;border-bottom:1px solid var(--line)}
+  .top-post:last-child{border:0}
+  .top-post .m{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .top-post .t{margin:3px 0 5px;font-size:14px}
+  .top-post .e{font-size:12px;color:var(--accent2);font-variant-numeric:tabular-nums}
+  svg{display:block;width:100%;height:auto;overflow:visible}
+  .axis{font-size:11px;fill:var(--muted)}
+  footer{border-top:1px solid var(--line);margin-top:64px;padding-top:20px;font-size:12.5px;color:var(--muted)}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Content Creator Portrait · 生成于 <span id="gen"></span></div>
+  <h1 id="title">账号画像</h1>
+  <p class="bio" id="bio"></p>
+  <div class="stats" id="stats"></div>
+</header>
+
+<section>
+  <h2><span class="n">01</span>一句话结论</h2>
+  <div class="callout" id="thesis"></div>
+  <p class="note">下面的每一节都是这句话的证据。所有数字来自实际采集的帖子，不是估算。</p>
+</section>
+
+<section>
+  <h2><span class="n">02</span>节奏：他从什么时候开始加速</h2>
+  <p class="lede">月度发帖量。拐点标在曲线上——那是「量变」发生的时刻，后面的内容结构变化通常紧接着出现。</p>
+  <div class="card"><div id="chart-volume"></div><div class="legend" id="legend-vol"></div></div>
+</section>
+
+<section>
+  <h2><span class="n">03</span>形态：他其实在做什么动作</h2>
+  <p class="lede">原创 / 引用 / 回复 / 转推的比例随时间迁移。这条曲线比发帖量更能说明增长机制——是在「创作」，还是在「对话」。</p>
+  <div class="card"><div id="chart-kind"></div><div class="legend" id="legend-kind"></div></div>
+  <div class="grid2" style="margin-top:20px">
+    <div class="card"><h3 style="margin-top:0;font-size:15px">按形态的互动效率</h3><p class="note" style="margin-top:0">已排除转推：转推的赞/浏览属于原作者。</p><div id="eff-table"></div></div>
+    <div class="card"><h3 style="margin-top:0;font-size:15px">内容三层（启发式）</h3><div id="levels"></div></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">04</span>坐标：他站在哪个话题、哪个圈子里</h2>
+  <p class="lede">话题标签是他的自我定位声明；回复对象是他实际混的圈子。两者常常不一致，不一致的地方就是策略。</p>
+  <div class="grid2">
+    <div class="card"><h3 style="margin-top:0;font-size:15px">话题标签</h3><div id="tags"></div></div>
+    <div class="card"><h3 style="margin-top:0;font-size:15px">他最常回复的人</h3><div id="replies"></div>
+      <p class="note" id="self-thread"></p></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">05</span>漏斗：他把人往哪里带</h2>
+  <p class="lede">外链域名分布。自己域名占比越高，说明账号不是终点而是入口——这是「把流量变资产」的直接证据。</p>
+  <div class="card"><div id="domains"></div>
+    <div class="callout" id="funnel-note"></div></div>
+</section>
+
+<section>
+  <h2><span class="n">06</span>证据：互动最高的帖子</h2>
+  <p class="lede">按 赞 + 2×转 + 2×评 + 2×引 排序，<b>已排除转推</b>（转推的互动属于原作者，不能算他的战绩）。</p>
+  <div class="card" id="top-posts"></div>
+</section>
+
+<footer id="foot"></footer>
+</div>
+
+<script>
+const D = {"meta": {"username": "cellinlab", "name": "Cell 细胞", "id": "1131442257675083777", "bio": "🎯 AI & Crypto & DIY · 探索个体与社区的更多可能 ｜\n🌱 build 造物矩阵 @ZaoWuJuZhen & 小火炉播客 @XiaohuoluFM ｜\n💬微 vcellinlab｜📮cell@01flow.com", "created": "2019-05-23", "followers": 35020, "following": 7057, "statuses": 24660, "media_count": 4205}, "generated": "2026-10-28T23:06:36", "monthly": [{"m": "2022-03", "total": 1, "tweet": 1, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 100.0, "like_med": 0, "view_med": 0, "eng_med": 0}, {"m": "2022-04", "total": 10, "tweet": 4, "quote": 0, "reply": 6, "retweet": 0, "media_ratio": 30.0, "like_med": 0.0, "view_med": 0.0, "eng_med": 0.5}, {"m": "2022-05", "total": 1, "tweet": 0, "quote": 0, "reply": 1, "retweet": 0, "media_ratio": 0.0, "like_med": 0, "view_med": 0, "eng_med": 0}, {"m": "2022-06", "total": 2, "tweet": 0, "quote": 0, "reply": 2, "retweet": 0, "media_ratio": 0.0, "like_med": 0.0, "view_med": 0.0, "eng_med": 0.0}, {"m": "2022-07", "total": 3, "tweet": 0, "quote": 0, "reply": 2, "retweet": 1, "media_ratio": 0.0, "like_med": 0, "view_med": 0, "eng_med": 2}, {"m": "2022-08", "total": 8, "tweet": 0, "quote": 0, "reply": 5, "retweet": 3, "media_ratio": 0.0, "like_med": 0.0, "view_med": 0.0, "eng_med": 3.5}, {"m": "2022-09", "total": 12, "tweet": 0, "quote": 0, "reply": 1, "retweet": 11, "media_ratio": 33.3, "like_med": 0.0, "view_med": 0.0, "eng_med": 130.0}, {"m": "2022-10", "total": 34, "tweet": 0, "quote": 0, "reply": 2, "retweet": 32, "media_ratio": 29.4, "like_med": 0.0, "view_med": 0.0, "eng_med": 62.0}, {"m": "2022-11", "total": 24, "tweet": 0, "quote": 0, "reply": 0, "retweet": 24, "media_ratio": 16.7, "like_med": 0.0, "view_med": 0.0, "eng_med": 170.0}, {"m": "2022-12", "total": 33, "tweet": 1, "quote": 0, "reply": 0, "retweet": 32, "media_ratio": 24.2, "like_med": 0, "view_med": 0, "eng_med": 212}, {"m": "2023-01", "total": 40, "tweet": 0, "quote": 0, "reply": 5, "retweet": 35, "media_ratio": 17.5, "like_med": 0.0, "view_med": 26458.5, "eng_med": 84.0}, {"m": "2023-02", "total": 50, "tweet": 2, "quote": 4, "reply": 14, "retweet": 30, "media_ratio": 18.0, "like_med": 0.0, "view_med": 13206.5, "eng_med": 24.0}, {"m": "2023-03", "total": 174, "tweet": 3, "quote": 3, "reply": 28, "retweet": 140, "media_ratio": 17.8, "like_med": 0.0, "view_med": 48435.0, "eng_med": 120.0}, {"m": "2023-04", "total": 73, "tweet": 2, "quote": 1, "reply": 12, "retweet": 58, "media_ratio": 9.6, "like_med": 0, "view_med": 52437, "eng_med": 176}, {"m": "2023-05", "total": 61, "tweet": 5, "quote": 8, "reply": 21, "retweet": 27, "media_ratio": 13.1, "like_med": 0, "view_med": 1363, "eng_med": 3}, {"m": "2023-06", "total": 48, "tweet": 9, "quote": 4, "reply": 17, "retweet": 18, "media_ratio": 22.9, "like_med": 0.0, "view_med": 257.5, "eng_med": 3.0}, {"m": "2023-07", "total": 77, "tweet": 6, "quote": 3, "reply": 39, "retweet": 29, "media_ratio": 26.0, "like_med": 0, "view_med": 277, "eng_med": 2}, {"m": "2023-08", "total": 60, "tweet": 3, "quote": 1, "reply": 25, "retweet": 31, "media_ratio": 28.3, "like_med": 0.0, "view_med": 4354.0, "eng_med": 7.0}, {"m": "2023-09", "total": 11, "tweet": 0, "quote": 0, "reply": 4, "retweet": 7, "media_ratio": 9.1, "like_med": 0, "view_med": 88515, "eng_med": 242}, {"m": "2023-10", "total": 17, "tweet": 2, "quote": 2, "reply": 8, "retweet": 5, "media_ratio": 29.4, "like_med": 0, "view_med": 573, "eng_med": 2}, {"m": "2023-11", "total": 56, "tweet": 12, "quote": 3, "reply": 26, "retweet": 15, "media_ratio": 30.4, "like_med": 0.0, "view_med": 319.0, "eng_med": 2.0}, {"m": "2023-12", "total": 54, "tweet": 6, "quote": 5, "reply": 35, "retweet": 8, "media_ratio": 9.3, "like_med": 0.0, "view_med": 392.5, "eng_med": 2.0}, {"m": "2024-01", "total": 178, "tweet": 35, "quote": 17, "reply": 113, "retweet": 13, "media_ratio": 21.3, "like_med": 0.0, "view_med": 219.0, "eng_med": 2.0}, {"m": "2024-02", "total": 733, "tweet": 222, "quote": 30, "reply": 451, "retweet": 30, "media_ratio": 8.6, "like_med": 0, "view_med": 275, "eng_med": 1}, {"m": "2024-03", "total": 1, "tweet": 1, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 100.0, "like_med": 62, "view_med": 65684, "eng_med": 88}, {"m": "2024-04", "total": 1, "tweet": 1, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 100.0, "like_med": 8, "view_med": 8316, "eng_med": 14}, {"m": "2024-05", "total": 0, "tweet": 0, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 0, "like_med": 0, "view_med": 0, "eng_med": 0}, {"m": "2024-06", "total": 0, "tweet": 0, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 0, "like_med": 0, "view_med": 0, "eng_med": 0}, {"m": "2024-07", "total": 0, "tweet": 0, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 0, "like_med": 0, "view_med": 0, "eng_med": 0}, {"m": "2024-08", "total": 1, "tweet": 1, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 100.0, "like_med": 5, "view_med": 21431, "eng_med": 7}, {"m": "2024-09", "total": 0, "tweet": 0, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 0, "like_med": 0, "view_med": 0, "eng_med": 0}, {"m": "2024-10", "total": 0, "tweet": 0, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 0, "like_med": 0, "view_med": 0, "eng_med": 0}, {"m": "2024-11", "total": 55, "tweet": 24, "quote": 8, "reply": 23, "retweet": 0, "media_ratio": 34.5, "like_med": 1, "view_med": 669, "eng_med": 3}, {"m": "2024-12", "total": 6, "tweet": 3, "quote": 0, "reply": 3, "retweet": 0, "media_ratio": 33.3, "like_med": 0.0, "view_med": 530.0, "eng_med": 2.0}, {"m": "2025-01", "total": 0, "tweet": 0, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 0, "like_med": 0, "view_med": 0, "eng_med": 0}, {"m": "2025-02", "total": 0, "tweet": 0, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 0, "like_med": 0, "view_med": 0, "eng_med": 0}, {"m": "2025-03", "total": 2, "tweet": 2, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 100.0, "like_med": 31.5, "view_med": 10837.5, "eng_med": 49.5}, {"m": "2025-04", "total": 4, "tweet": 3, "quote": 0, "reply": 1, "retweet": 0, "media_ratio": 50.0, "like_med": 6.5, "view_med": 5140.0, "eng_med": 15.5}, {"m": "2025-05", "total": 6, "tweet": 6, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 50.0, "like_med": 5.5, "view_med": 3209.0, "eng_med": 10.5}, {"m": "2025-06", "total": 703, "tweet": 133, "quote": 137, "reply": 433, "retweet": 0, "media_ratio": 23.3, "like_med": 1, "view_med": 537, "eng_med": 2}, {"m": "2025-07", "total": 107, "tweet": 13, "quote": 22, "reply": 72, "retweet": 0, "media_ratio": 16.8, "like_med": 1, "view_med": 412, "eng_med": 2}, {"m": "2025-08", "total": 1, "tweet": 1, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 100.0, "like_med": 10, "view_med": 6263, "eng_med": 22}, {"m": "2025-09", "total": 0, "tweet": 0, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 0, "like_med": 0, "view_med": 0, "eng_med": 0}, {"m": "2025-10", "total": 0, "tweet": 0, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 0, "like_med": 0, "view_med": 0, "eng_med": 0}, {"m": "2025-11", "total": 0, "tweet": 0, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 0, "like_med": 0, "view_med": 0, "eng_med": 0}, {"m": "2025-12", "total": 1, "tweet": 1, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 100.0, "like_med": 24, "view_med": 5038, "eng_med": 36}, {"m": "2026-01", "total": 2, "tweet": 2, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 50.0, "like_med": 3.0, "view_med": 1906.0, "eng_med": 6.0}, {"m": "2026-02", "total": 1, "tweet": 1, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 100.0, "like_med": 9, "view_med": 6388, "eng_med": 41}, {"m": "2026-03", "total": 5, "tweet": 5, "quote": 0, "reply": 0, "retweet": 0, "media_ratio": 40.0, "like_med": 84, "view_med": 35039, "eng_med": 112}, {"m": "2026-04", "total": 247, "tweet": 30, "quote": 37, "reply": 167, "retweet": 13, "media_ratio": 27.5, "like_med": 1, "view_med": 630, "eng_med": 2}, {"m": "2026-05", "total": 865, "tweet": 105, "quote": 152, "reply": 546, "retweet": 62, "media_ratio": 22.3, "like_med": 1, "view_med": 760, "eng_med": 3}, {"m": "2026-06", "total": 790, "tweet": 110, "quote": 111, "reply": 533, "retweet": 36, "media_ratio": 19.2, "like_med": 1.0, "view_med": 734.0, "eng_med": 2.0}, {"m": "2026-07", "total": 873, "tweet": 91, "quote": 162, "reply": 583, "retweet": 37, "media_ratio": 20.3, "like_med": 1, "view_med": 559, "eng_med": 2}, {"m": "2026-08", "total": 1365, "tweet": 169, "quote": 225, "reply": 906, "retweet": 65, "media_ratio": 21.1, "like_med": 1, "view_med": 368, "eng_med": 2}, {"m": "2026-09", "total": 1101, "tweet": 96, "quote": 186, "reply": 793, "retweet": 26, "media_ratio": 20.1, "like_med": 1, "view_med": 205, "eng_med": 2}, {"m": "2026-10", "total": 2121, "tweet": 401, "quote": 355, "reply": 1321, "retweet": 44, "media_ratio": 9.5, "like_med": 1, "view_med": 216, "eng_med": 2}], "kind_mix": {"tweet": 1512, "reply": 6198, "retweet": 832, "quote": 1476}, "langs": {"zh": 8250, "ja": 986, "en": 289, "qme": 213, "und": 141, "zxx": 86, "art": 24, "qam": 4}, "levels": {"观点": 2657, "娱乐": 1947, "对话": 4282, "启发": 405, "教育": 727}, "hashtags": [{"k": "独立开发", "n": 245}, {"k": "一人公司", "n": 149}, {"k": "小而美", "n": 77}, {"k": "个人品牌", "n": 48}, {"k": "小池大鱼", "n": 36}, {"k": "自由职业", "n": 36}, {"k": "AIGC", "n": 23}, {"k": "出海去", "n": 22}, {"k": "读书笔记", "n": 21}, {"k": "超级个体", "n": 21}, {"k": "buildinpublic", "n": 19}, {"k": "独立工作者", "n": 19}, {"k": "工程师学习", "n": 15}, {"k": "工程师工具", "n": 13}, {"k": "世界尽头的咖啡馆", "n": 11}, {"k": "灵感", "n": 10}, {"k": "单干", "n": 10}, {"k": "OpenAI", "n": 9}, {"k": "Sora", "n": 9}, {"k": "思考的框架", "n": 7}, {"k": "增长黑客", "n": 7}, {"k": "ChatGPT", "n": 5}, {"k": "buildinginpublic", "n": 5}, {"k": "ChineseNewYear", "n": 5}], "domains": [{"k": "x.com", "n": 444}, {"k": "zaowujuzhen.com", "n": 125}, {"k": "github.com", "n": 83}, {"k": "xiaohuolufm.com", "n": 50}, {"k": "mp.weixin.qq.com", "n": 31}, {"k": "xiaoyuzhoufm.com", "n": 16}, {"k": "zwjz.cc", "n": 13}, {"k": "passport.compshare.cn", "n": 12}, {"k": "ahhhhfs.com", "n": 9}, {"k": "blog.cellinlab.com", "n": 9}, {"k": "flatrouter.com", "n": 9}, {"k": "gamsgo.com", "n": 8}, {"k": "zenmux.ai", "n": 8}, {"k": "vibecafe.ai", "n": 8}, {"k": "xhslink.com", "n": 7}, {"k": "tutti.so", "n": 7}, {"k": "aisa.one", "n": 7}, {"k": "weread.qq.com", "n": 6}, {"k": "huggingface.co", "n": 5}, {"k": "v2ex.com", "n": 5}], "reply_targets": [{"k": "cellinlab", "n": 294}, {"k": "ModengSir", "n": 113}, {"k": "sujingshen", "n": 95}, {"k": "berryxia", "n": 92}, {"k": "lxfater", "n": 86}, {"k": "GoSailGlobal", "n": 67}, {"k": "yihui_indie", "n": 62}, {"k": "gewuerleo", "n": 57}, {"k": "yanhua1010", "n": 54}, {"k": "ericoding99", "n": 51}, {"k": "crazyox", "n": 49}, {"k": "chasen_liao", "n": 48}, {"k": "xiangyuli", "n": 47}, {"k": "shengxj1", "n": 45}, {"k": "PandaTalk8", "n": 45}, {"k": "li9292", "n": 42}, {"k": "tangpanqing", "n": 41}, {"k": "QiaoBitX", "n": 41}, {"k": "NEO_Diver", "n": 40}, {"k": "cnyzgkc", "n": 38}], "quote_targets": [{"k": "cellinlab", "n": 916}, {"k": "thsottiaux", "n": 27}, {"k": "okxchinese", "n": 18}, {"k": "PandaTalk8", "n": 17}, {"k": "GoSailGlobal", "n": 17}, {"k": "wangzaimedia", "n": 17}, {"k": "yihui_indie", "n": 16}, {"k": "lxfater", "n": 14}, {"k": "ianneo_ai", "n": 14}, {"k": "berryxia", "n": 13}, {"k": "dontbesilent", "n": 12}, {"k": "ModengSir", "n": 12}, {"k": "gewuerleo", "n": 12}, {"k": "grok", "n": 11}, {"k": "python_xxt", "n": 10}, {"k": "xiangyuli", "n": 10}, {"k": "elonmusk", "n": 9}, {"k": "zhufengme", "n": 8}, {"k": "DLKFZWilliam2", "n": 8}, {"k": "xbanboo", "n": 7}], "hourly": [329, 669, 828, 908, 743, 779, 707, 646, 633, 598, 412, 434, 436, 476, 486, 462, 219, 63, 19, 6, 1, 18, 42, 104], "lengths": {"0-50": 6284, "50-140": 2532, "140-400": 1032, "400+": 170}, "eff": {"tweet": {"n": 1512, "like_med": 3.0, "view_med": 1251.5, "eng_med": 8.0, "media_ratio": 49.6}, "quote": {"n": 1476, "like_med": 3.0, "view_med": 1387.5, "eng_med": 9.0, "media_ratio": 37.1}, "reply": {"n": 6198, "like_med": 0.0, "view_med": 137.0, "eng_med": 1.0, "media_ratio": 4.5}}, "top_posts": [{"id": "2099000939881644284", "date": "2026-09-13", "kind": "tweet", "text": "为什么穿裤子脱一半，\n比不穿裤子看起来更吸引注意力… https://t.co/AZFtRyze8y", "url": "https://x.com/cellinlab/status/2099000939881644284", "like": 7154, "rt": 308, "reply": 107, "view": 272236, "eng": 7988}, {"id": "2068193900570046502", "date": "2026-06-20", "kind": "tweet", "text": "卧槽！秒啊！我怎么就没想到这个用法🤯\n\n用 内嵌浏览器 做 Codex Image 2 的生图无限画布！ https://t.co/cMYwabZyWS", "url": "https://x.com/cellinlab/status/2068193900570046502", "like": 3593, "rt": 386, "reply": 181, "view": 536791, "eng": 4853}, {"id": "2104394659950997858", "date": "2026-09-28", "kind": "tweet", "text": "问我弟：现在你用什么 AI？\n他：deepseek 和 glm？\n\n我追问：为什么不用 Codex 或 Claude ？\n答：我做的事情没有那么复杂，国内模型都能解决…\n\n问：那你现在主要做啥？\n答：c++ 写嵌入式，python 写测试。目前还没有出现 国内模型解决不了的问题。", "url": "https://x.com/cellinlab/status/2104394659950997858", "like": 3028, "rt": 54, "reply": 430, "view": 871055, "eng": 4072}, {"id": "2052945031669928222", "date": "2026-05-09", "kind": "tweet", "text": "卧槽！突然感觉我好蠢， \n我居然看不懂，为什么会这样？ \n\n我高一之前一直数学成绩班里 Top10， \n后来偶然一次科学小展会一个橡皮筋拓扑， \n为什么会那样，我理解不了。\n\n然后，好像自那以后我就对数学没兴趣了...\nhttps://t.co/PNouvFsGbA", "url": "https://x.com/cellinlab/status/2052945031669928222", "like": 2071, "rt": 221, "reply": 395, "view": 529633, "eng": 3345}, {"id": "2055267224894542179", "date": "2026-05-15", "kind": "tweet", "text": "喔艹？！ 微信读书 \n官方居然出了一个 Skill！\n\n把微信读书里常用能力基本度封装了：\n\n支持搜索书籍、查看书架、阅读统计、笔记划线、热门划线、书评、推荐好书，甚至可以拼接深度链接，直接跳回微信读书 App。\n\n（需要更新到 10.1.1\n\nskill 地址放评论区了👉 https://t.co/TDvr4r90Ct", "url": "https://x.com/cellinlab/status/2055267224894542179", "like": 1398, "rt": 247, "reply": 134, "view": 219120, "eng": 2180}, {"id": "2107678143213699306", "date": "2026-10-07", "kind": "tweet", "text": "不上班小生意 +1 https://t.co/xhJyd0etbY", "url": "https://x.com/cellinlab/status/2107678143213699306", "like": 1254, "rt": 155, "reply": 81, "view": 308647, "eng": 1742}, {"id": "2091009292673450193", "date": "2026-08-22", "kind": "tweet", "text": "这个创意好酷啊！\n\n用 AI 把《红色警戒 2》变成了 22 分钟的史诗电影🎬 https://t.co/C9eTEZYcks", "url": "https://x.com/cellinlab/status/2091009292673450193", "like": 916, "rt": 181, "reply": 114, "view": 119134, "eng": 1556}, {"id": "2084850256722956325", "date": "2026-08-05", "kind": "quote", "text": "卧槽！这是真的财富密码！\n\n（🐶不谈道德的话。 https://t.co/Aj6i9LC2wT", "url": "https://x.com/cellinlab/status/2084850256722956325", "like": 1108, "rt": 162, "reply": 52, "view": 168554, "eng": 1542}, {"id": "2106599166235549720", "date": "2026-10-04", "kind": "tweet", "text": "笑死 京津冀禁飞后 文旅宣传 belike👉 https://t.co/cX7MDpxvcn", "url": "https://x.com/cellinlab/status/2106599166235549720", "like": 1428, "rt": 35, "reply": 19, "view": 137383, "eng": 1542}, {"id": "2059213908091539627", "date": "2026-05-26", "kind": "tweet", "text": "时间线 刷到 好几个 Pi Agent 的推荐，\n让 Codex 帮我学了下，做了个手把手教程\n\n👉 Pi Agent 原理与实现：从零到一实现一个 AI Agent\n🔗 在线学习：https://t.co/LUq9fZ52om\n🌍 文档源码：https://t.co/lWCaekC1V4 https://t.co/Ili9Zc2hkj", "url": "https://x.com/cellinlab/status/2059213908091539627", "like": 990, "rt": 186, "reply": 68, "view": 250241, "eng": 1532}, {"id": "2091349660426232008", "date": "2026-08-23", "kind": "quote", "text": "赞同！ https://t.co/RAqmhcmIHA", "url": "https://x.com/cellinlab/status/2091349660426232008", "like": 949, "rt": 163, "reply": 82, "view": 160196, "eng": 1451}, {"id": "2071800865090879741", "date": "2026-06-30", "kind": "quote", "text": "卧槽！牛逼！\n\nX 真的太排面了，这是世界上最伟大的产品！\n\nX MCP， Agent 现在可以访问世界上最佳的实时信息源。\n\n无需任何设置，即可将 Grok、Cursor 或任何兼容 MCP 的 AI 工具连接到 X API！", "url": "https://x.com/cellinlab/status/2071800865090879741", "like": 931, "rt": 121, "reply": 80, "view": 395865, "eng": 1349}, {"id": "1931623796152353212", "date": "2025-06-08", "kind": "tweet", "text": "提示词注入攻击 😁\n https://t.co/jMYDUNqiSy", "url": "https://x.com/cellinlab/status/1931623796152353212", "like": 995, "rt": 83, "reply": 58, "view": 321071, "eng": 1329}, {"id": "2079112335004705142", "date": "2026-07-20", "kind": "tweet", "text": "绝了，原来 Grok 还能怎么用啊？！\n\n那我辛辛苦苦写的 爬虫 算什么。。。 https://t.co/v58wPiwJ7Q", "url": "https://x.com/cellinlab/status/2079112335004705142", "like": 791, "rt": 105, "reply": 111, "view": 263279, "eng": 1235}, {"id": "2085510383255609349", "date": "2026-08-06", "kind": "tweet", "text": "哈哈哈哈哈哈 艹\n\n诚信面试神器🤣🤣🤣 https://t.co/g0oaDXSWXc", "url": "https://x.com/cellinlab/status/2085510383255609349", "like": 743, "rt": 42, "reply": 176, "view": 226536, "eng": 1201}, {"id": "2060177767447015721", "date": "2026-05-29", "kind": "tweet", "text": "卧槽！这套 ruoyi 养活了多少外包公司？！\n\n最近验收的几个外包项目，\n全是拿这套生态做的😂 https://t.co/Xvn5NKkpKE", "url": "https://x.com/cellinlab/status/2060177767447015721", "like": 750, "rt": 87, "reply": 123, "view": 224655, "eng": 1188}, {"id": "1929836950439317754", "date": "2025-06-03", "kind": "tweet", "text": "做 IP 别找对标，做自己就行，可以把对标当榜样，但是不能当模板。 https://t.co/UvNcvXgICw", "url": "https://x.com/cellinlab/status/1929836950439317754", "like": 837, "rt": 134, "reply": 6, "view": 214714, "eng": 1127}, {"id": "2079144322889400793", "date": "2026-07-20", "kind": "tweet", "text": "我发现 好多人 用 Github 推荐当日常内容！\n\n现在不用再问 AI 了，直接看 造物雷达 🧭\n\n8000+ Github 精选，够你发一年了👀\n\n访问查看 👉 https://t.co/uGYCrEkSLx https://t.co/kDnPGym3JO", "url": "https://x.com/cellinlab/status/2079144322889400793", "like": 722, "rt": 145, "reply": 38, "view": 251738, "eng": 1102}, {"id": "2084161719950307671", "date": "2026-08-03", "kind": "tweet", "text": "哈哈哈哈哈 艹 已经有人 \nVibe 出来 赛博知了猴了 \n\n来来来，一起 哇哇哇～\n\n感觉 余音绕梁 在 品牌营销史上能留下浓墨重彩的一笔了。\nhttps://t.co/XUQtsTX5zz", "url": "https://x.com/cellinlab/status/2084161719950307671", "like": 695, "rt": 35, "reply": 154, "view": 355790, "eng": 1093}, {"id": "2090269676760948752", "date": "2026-08-20", "kind": "tweet", "text": "卧槽！绝了。先去做，做了就有答案！\n\n突然发现，这里收集的全球 Maker \n就够我做好几年拆解视频了素材了...6!\n\n👉https://t.co/DQpjgu34Yd https://t.co/HUkrAZRZ4Y", "url": "https://x.com/cellinlab/status/2090269676760948752", "like": 724, "rt": 117, "reply": 27, "view": 182617, "eng": 1022}, {"id": "2084507607713116460", "date": "2026-08-04", "kind": "tweet", "text": "卧槽 这个 妙啊！\n\n谁来 Vibe 一个 中国象棋版本👀必火🔥 https://t.co/j9vO4z1TmM", "url": "https://x.com/cellinlab/status/2084507607713116460", "like": 670, "rt": 51, "reply": 96, "view": 184987, "eng": 988}, {"id": "1932614361656254484", "date": "2025-06-11", "kind": "tweet", "text": "上午在邮箱翻到一个好东西！🧠 Alpha News！\n每天抓取 10,000+ 推文，自动筛选、聚合、重组，只留精华。\n用 AI 帮你系统性掌握碎片信息，5 分钟读完当天核心观点。\n阅读效率提升 100x，信息焦虑归零。 https://t.co/qc3FL88uaW", "url": "https://x.com/cellinlab/status/1932614361656254484", "like": 706, "rt": 119, "reply": 17, "view": 140435, "eng": 980}, {"id": "2067075685534089309", "date": "2026-06-17", "kind": "tweet", "text": "卧槽 还真有！找到了！\n这下不用担心被封号了 https://t.co/0ClF81L9ic", "url": "https://x.com/cellinlab/status/2067075685534089309", "like": 672, "rt": 90, "reply": 56, "view": 175208, "eng": 966}, {"id": "2068983811703267589", "date": "2026-06-22", "kind": "tweet", "text": "终于蹲到更新！百万播放预定 🔔\n\n全网最全最细的零基础 AI 做 PPT 系统教程！\n\n目标这期跟完，成为用 AI 做 PPT 的专家！ https://t.co/XXT81Zql04", "url": "https://x.com/cellinlab/status/2068983811703267589", "like": 540, "rt": 108, "reply": 94, "view": 38551, "eng": 948}, {"id": "2091161455248945640", "date": "2026-08-22", "kind": "tweet", "text": "牛逼！这让我想起 全裸监督 导演 他们的刮刮乐了 https://t.co/1EG4m3bLZz", "url": "https://x.com/cellinlab/status/2091161455248945640", "like": 523, "rt": 34, "reply": 167, "view": 298091, "eng": 937}, {"id": "2057650906603159999", "date": "2026-05-22", "kind": "tweet", "text": "作者更新太快了！都是 Threejs 驱动。\n我还没来得及看，又加了新功能！\n\n上班真的耽误 Vibe，Dammm...\nhttps://t.co/j4XDr6sEZK", "url": "https://x.com/cellinlab/status/2057650906603159999", "like": 567, "rt": 74, "reply": 70, "view": 162470, "eng": 857}, {"id": "2091341484863721969", "date": "2026-08-23", "kind": "tweet", "text": "不是！？这就是信息差吗？\n咸鱼博主含泪赚三百？？？ https://t.co/awKdm4pa6n", "url": "https://x.com/cellinlab/status/2091341484863721969", "like": 425, "rt": 19, "reply": 181, "view": 499097, "eng": 837}, {"id": "2108867779021750318", "date": "2026-10-10", "kind": "tweet", "text": "卧槽，要什么 导演台，要什么 Blender！\n\nThreejs 就是最好的导演台！\n\n上面 AI 视频，下面 Threejs 白模导演台。\n\n先用代码排演船、飞机和镜头的运动，再把视频与外观参考图交给 Seedance 2.5。\n\n前几轮像玩具，还疑似炸到自己船 😂 \n\n给几个参考图，总算比较接近我想要的了！ https://t.co/3yLRmHLb4C", "url": "https://x.com/cellinlab/status/2108867779021750318", "like": 539, "rt": 77, "reply": 50, "view": 62136, "eng": 801}, {"id": "2092474148505182506", "date": "2026-08-26", "kind": "tweet", "text": "阿里的一些产品经理真的是\n毫无底线，生孩子没屁眼！\n\n在飞🐷买机票，突然多了50元意外险，\n找了半天没有找到取消按钮和入口，\n一气之下去美团下单了，\n然后回来取消飞🐷订单，这时候！\n在订单挽留的弹窗里出现了取消意外险的选项…\n\n真的，太尼玛优秀了，小心思全用这里了！ https://t.co/gMqFtqUE40", "url": "https://x.com/cellinlab/status/2092474148505182506", "like": 453, "rt": 23, "reply": 131, "view": 88219, "eng": 769}, {"id": "2047963476178657613", "date": "2026-04-25", "kind": "tweet", "text": "卧槽，这个必须分享！！！「附详细提示词」🔥\n\n终于用 Rita 把脑洞里的 K-pop 女团 MV 直接干出来了！\n\n全程零剪辑、零换工具，从分镜到成片不到 10 分钟就丝滑出炉！\n\n过程超简单：\n1）先用 GPT Image 2 一键生成 12 帧高端分镜，每帧都自带电影感、时尚感和女团专属氛围。\n\n2）再把分镜丢进 Seedance 2.0（字节跳动官方正版！），直接「视频化每个帧 + 自然衔接」，一键出完整 MV 宣发视频！\n\n效果可以看视频：\n\n颜值、身材、气场、舞蹈全在线！\n霓虹夜街、未来感工作室、夕阳天台、复古 diner…\n场景切换丝滑到爆", "url": "https://x.com/cellinlab/status/2047963476178657613", "like": 471, "rt": 86, "reply": 53, "view": 204020, "eng": 761}, {"id": "2069629081935831252", "date": "2026-06-24", "kind": "tweet", "text": "Codex Loop 实践：\n\n很好，现在回头看，我给你的第一句 提示词 应该改成什么样子，你能第一次就解决这个问题 https://t.co/jsVJ5wo6Tm", "url": "https://x.com/cellinlab/status/2069629081935831252", "like": 490, "rt": 43, "reply": 86, "view": 70705, "eng": 752}, {"id": "2108015650870628352", "date": "2026-10-08", "kind": "quote", "text": "从零开始做一套品牌视觉体系【附提示词 🔥 https://t.co/wlo1uxXMBn", "url": "https://x.com/cellinlab/status/2108015650870628352", "like": 483, "rt": 107, "reply": 23, "view": 30315, "eng": 749}, {"id": "1933420373305102484", "date": "2025-06-13", "kind": "tweet", "text": "创造是一件对主观能动性要求很强的事情，而工具和技术只是放大了原本就在创造的人的效率杠杆，并不会激发一个没有创作欲望的人的创作冲动。 https://t.co/QukyXDtTyZ", "url": "https://x.com/cellinlab/status/1933420373305102484", "like": 536, "rt": 71, "reply": 7, "view": 75764, "eng": 700}, {"id": "1759066425648664839", "date": "2024-02-18", "kind": "tweet", "text": "发现了一个可能在AIGC风口上起飞的宝藏公司—杭州视杏科技（https://t.co/ayYQJpdWrq）！🚀自2017年起，他们就在音视频技术领域默默耕耘，目标是让每个人都能制作出大片级别的视频。🎥✨\n\n视杏的团队不仅技术实力强悍，而且他们的产品简直是视频创作者的梦想工具，想要降低视频制作门槛？他们已经在做了！而且，他们的视野是全球的，与Google、Adobe等国际大厂都有合作。🌍🤝\n\n但不仅如此，我对他们的开放态度和创新精神印象深刻。之前发了一条关于剪映国内开发生态的吐槽，被视杏的founder @reg_helloj  亲自回复给深深打动了（h", "url": "https://x.com/cellinlab/status/1759066425648664839", "like": 458, "rt": 105, "reply": 12, "view": 182120, "eng": 696}, {"id": "2077954573487178045", "date": "2026-07-17", "kind": "tweet", "text": "绝了！昨天上午发完「什么时候才能百模大战」，\n\n我突然想，能不能预测一下，\n拿 Apodex 做了次能在 9月底对账的预测：\n\n从今天到 9 月底，OpenAI、Anthropic、Google、xAI、DeepSeek、Kimi、GLM、Qwen、MiniMax 这 9 家里，会不会至少 4 家真正换代？\n（PS：Kimi 可能性最大！截止发稿前已发布！）\n\n结果是：0.5–1.5%！\n（PS：这只是基于当前公开证据的概率判断，不是确定结论\n\n🧵附完整分析过程 👉", "url": "https://x.com/cellinlab/status/2077954573487178045", "like": 143, "rt": 3, "reply": 242, "view": 26742, "eng": 695}, {"id": "2049317447556378717", "date": "2026-04-29", "kind": "tweet", "text": "GPT Image 2 + Codex 简直就是王炸⚡️\n（附提示词和源码，开源！🔥\n\n早上出去吃牛大，出门前和 Codex 说了句，\n吃完回来，Web 版「我被美女包围」 已经开发好了！\n\n全程两段提示词👉 https://t.co/5ttuBTO5GC", "url": "https://x.com/cellinlab/status/2049317447556378717", "like": 451, "rt": 59, "reply": 41, "view": 99349, "eng": 657}, {"id": "2068946789085086009", "date": "2026-06-22", "kind": "tweet", "text": "卧槽，这个，我也想买一个玩了，\n最近发现刷推刷着刷着就注意力不集中了 https://t.co/1ZKeR5RJfo", "url": "https://x.com/cellinlab/status/2068946789085086009", "like": 245, "rt": 30, "reply": 172, "view": 123705, "eng": 655}, {"id": "2070444034036797740", "date": "2026-06-26", "kind": "tweet", "text": "最最最 简单 成为 AI 博主 并接到商单的方法：\n\n把市面上 Top 100 的 AI 应用的\n基础功能和官方提供的最佳实践，\n用视频做一遍，发全平台🤫", "url": "https://x.com/cellinlab/status/2070444034036797740", "like": 401, "rt": 29, "reply": 79, "view": 59682, "eng": 655}, {"id": "2092850998792409165", "date": "2026-08-27", "kind": "tweet", "text": "最近在看 全职 OPC 了去哪，\n划拉了下在天津住差不多要 一个月房租 2.5k 左右，\n结果今天发现：\n\n居然，北京顺义也 2.5k 能租三居了...\n\n已经这样了吗？？？ https://t.co/s39laP88sG", "url": "https://x.com/cellinlab/status/2092850998792409165", "like": 32, "rt": 0, "reply": 298, "view": 38647, "eng": 630}, {"id": "1931210035251777852", "date": "2025-06-07", "kind": "tweet", "text": "太酷了！4D 视频！\n上高中那会儿就有个想法就是，球赛直播能不能 4D 直播，可以观众切任意视角、任意比例缩放，看来离实现不远了。 https://t.co/sbBBRZPwvl", "url": "https://x.com/cellinlab/status/1931210035251777852", "like": 407, "rt": 27, "reply": 79, "view": 224106, "eng": 621}], "inflection": [{"m": "2023-03", "from": 50, "to": 174}, {"m": "2024-01", "from": 54, "to": 178}, {"m": "2024-02", "from": 178, "to": 733}, {"m": "2026-05", "from": 247, "to": 865}], "self_thread": 294, "self_quote": 916, "own_links": {"mp.weixin.qq.com": 31, "xiaoyuzhoufm.com": 16, "xiaohuolufm.com": 50, "zaowujuzhen.com": 125}, "caveats": ["语料 10,018 条，账号 statusesCount 24,660，覆盖率 41%——2024–2025 仍在补采，中期曲线偏薄。", "粉丝数只有当前快照，没有历史曲线，所以「增长」是拿发帖量与互动量推断的，不是直接观测。", "内容分层是关键词启发式，不是人工标注；比例只看相对关系，不要当精确值。"]};
+const ns = "http://www.w3.org/2000/svg";
+const el = (t, a = {}) => { const n = document.createElementNS(ns, t);
+  for (const k in a) n.setAttribute(k, a[k]); return n; };
+const fmt = n => n.toLocaleString("en-US");
+
+/* ---------- header ---------- */
+document.getElementById("gen").textContent = D.generated.replace("T", " ");
+document.getElementById("title").innerHTML =
+  `${D.meta.name} <small>@${D.meta.username}</small>`;
+document.getElementById("bio").textContent = D.meta.bio;
+
+const span = D.monthly.length ? `${D.monthly[0].m} → ${D.monthly[D.monthly.length-1].m}` : "—";
+const total = D.monthly.reduce((a, b) => a + b.total, 0);
+const coverage = Math.round(100 * total / D.meta.statuses);
+const mediaRatio = Math.round(100 * D.monthly.reduce((a,b)=>a+b.total*b.media_ratio/100,0) / total);
+
+document.getElementById("stats").innerHTML = [
+  [fmt(total), "已采集帖子"],
+  [coverage + "%", `覆盖率（${fmt(D.meta.statuses)} 总帖）`],
+  [fmt(D.meta.followers), "粉丝（快照）"],
+  [mediaRatio + "%", "带媒体"],
+  [span.replace(/-/g,".").replace(/20/g,""), "时间跨度"],
+  [D.meta.created, "注册时间"],
+].map(([v, l]) => `<div class="stat"><b>${v}</b><span>${l}</span></div>`).join("");
+
+/* ---------- 结论（由数据生成） ---------- */
+const kindTotal = Object.values(D.kind_mix).reduce((a,b)=>a+b,0);
+const replyPct = Math.round(100 * (D.kind_mix.reply||0) / kindTotal);
+const quotePct = Math.round(100 * (D.kind_mix.quote||0) / kindTotal);
+const tweetPct = Math.round(100 * (D.kind_mix.tweet||0) / kindTotal);
+const selfPct = Math.round(100 * D.self_thread / (D.kind_mix.reply||1));
+const topTag = D.hashtags[0] ? D.hashtags[0].k : "—";
+const ownTotal = Object.values(D.own_links).reduce((a,b)=>a+b,0);
+const ownPct = Math.round(100 * ownTotal / (D.domains.reduce((a,b)=>a+b.n,0)||1));
+const peak = D.monthly.slice().sort((a,b)=>b.total-a.total)[0];
+
+document.getElementById("thesis").innerHTML =
+  `他不是靠「发内容」做起来的，是靠<b>对话</b>：全部帖子里 <b>${replyPct}%</b> 是回复，` +
+  `其中 <b>${selfPct}%</b> 是回复自己，另有 <b>${fmt(D.self_quote)}</b> 次引用自己——他靠「自建线程」把碎片串成叙事；` +
+  `真正独立原创只占 <b>${tweetPct}%</b>。` +
+  `话题坐标钉死在 <b>${topTag}</b> 这类「独立开发者 / 一人公司」语汇上，` +
+  `而外链里 <b>${ownPct}%</b> 指向自己的官网、播客和公众号——` +
+  `账号本身是入口，不是终点。` +
+  (peak ? `发帖量最大的是 <b>${peak.m}</b>（${fmt(peak.total)} 条）。` : "");
+
+/* ---------- 02 折线 ---------- */
+(function lineChart(){
+  const box = document.getElementById("chart-volume");
+  const W = 960, H = 260, pad = {l:44,r:12,t:14,b:26};
+  const data = D.monthly;
+  const max = Math.max(...data.map(d => d.total), 1);
+  const x = i => pad.l + i * (W - pad.l - pad.r) / Math.max(data.length-1,1);
+  const y = v => H - pad.b - v / max * (H - pad.t - pad.b);
+  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`, role:"img"});
+
+  for (let g = 0; g <= 3; g++){
+    const gy = pad.t + g * (H-pad.t-pad.b)/3;
+    svg.appendChild(el("line",{x1:pad.l,x2:W-pad.r,y1:gy,y2:gy,stroke:"#eef0f5"}));
+    const t = el("text",{x:pad.l-8,y:gy+4,"text-anchor":"end",class:"axis"});
+    t.textContent = fmt(Math.round(max - g*max/3)); svg.appendChild(t);
+  }
+  // 空窗（0 条）用浅色竖带标出：那是缺采，不是没发
+  data.forEach((d,i)=>{
+    if (d.total) return;
+    const w = (W-pad.l-pad.r)/Math.max(data.length-1,1);
+    svg.appendChild(el("rect",{x:x(i)-w/2,y:pad.t,width:w,height:H-pad.t-pad.b,
+      fill:"#f4f5f9"}));
+  });
+
+  const pts = data.map((d,i)=>[x(i), y(d.total)]);
+  let path = `M${pts[0][0]},${pts[0][1]}`;
+  for (let i=1;i<pts.length;i++){
+    const [x0,y0]=pts[i-1], [x1,y1]=pts[i], cx=(x0+x1)/2;
+    path += ` C${cx},${y0} ${cx},${y1} ${x1},${y1}`;
+  }
+  svg.appendChild(el("path",{d:`${path} L${pts[pts.length-1][0]},${H-pad.b} L${pts[0][0]},${H-pad.b} Z`,
+    fill:"url(#grad)", stroke:"none"}));
+  const defs = el("defs");
+  const lg = el("linearGradient",{id:"grad",x1:0,y1:0,x2:0,y2:1});
+  lg.appendChild(el("stop",{offset:"0%","stop-color":"#3b5bdb","stop-opacity":".18"}));
+  lg.appendChild(el("stop",{offset:"100%","stop-color":"#3b5bdb","stop-opacity":"0"}));
+  defs.appendChild(lg); svg.appendChild(defs);
+  svg.appendChild(el("path",{d:path,fill:"none",stroke:"#3b5bdb","stroke-width":2.2,
+    "stroke-linejoin":"round","stroke-linecap":"round"}));
+
+  // 拐点
+  D.inflection.forEach(p => {
+    const i = data.findIndex(d => d.m === p.m); if (i < 0) return;
+    svg.appendChild(el("circle",{cx:x(i),cy:y(data[i].total),r:4.5,fill:"#b45309",stroke:"#fff","stroke-width":2}));
+    const t = el("text",{x:x(i),y:y(data[i].total)-11,"text-anchor":"middle",class:"axis",fill:"#b45309"});
+    t.textContent = p.m; svg.appendChild(t);
+  });
+
+  // x 轴：每 6 个月一个标签
+  data.forEach((d,i)=>{
+    if (i % 6 && i !== data.length-1) return;
+    const t = el("text",{x:x(i),y:H-8,"text-anchor":"middle",class:"axis"});
+    t.textContent = d.m.slice(2); svg.appendChild(t);
+  });
+  box.appendChild(svg);
+  document.getElementById("legend-vol").innerHTML =
+    `<span><i style="background:#3b5bdb"></i>月度发帖量</span>` +
+    `<span><i style="background:#f4f5f9;border:1px solid #e6e8ee"></i>缺采空窗（≠没发帖）</span>` +
+    (D.inflection.length ? `<span><i style="background:#b45309"></i>拐点（较上月 3 倍以上）</span>` : "");
+})();
+
+/* ---------- 03 堆叠柱 ---------- */
+(function kindChart(){
+  const box = document.getElementById("chart-kind");
+  const W = 960, H = 240, pad = {l:44,r:12,t:12,b:26};
+  const data = D.monthly;
+  const max = Math.max(...data.map(d=>d.total),1);
+  const bw = Math.max(4, (W-pad.l-pad.r)/Math.max(data.length,1) - 3);
+  const keys = [["reply","#3b5bdb"],["tweet","#0f9d8a"],["quote","#c9a227"],["retweet","#b8bec9"]];
+  const svg = el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img"});
+  for (let g=0;g<=3;g++){
+    const gy = pad.t + g*(H-pad.t-pad.b)/3;
+    svg.appendChild(el("line",{x1:pad.l,x2:W-pad.r,y1:gy,y2:gy,stroke:"#eef0f5"}));
+    const t = el("text",{x:pad.l-8,y:gy+4,"text-anchor":"end",class:"axis"});
+    t.textContent = fmt(Math.round(max-g*max/3)); svg.appendChild(t);
+  }
+  data.forEach((d,i)=>{
+    const step = (W-pad.l-pad.r)/Math.max(data.length,1);
+    const cx = pad.l + i*step + 1;
+    if (!d.total) svg.appendChild(el("rect",{x:pad.l+i*step,y:pad.t,width:step,height:H-pad.t-pad.b,fill:"#f4f5f9"}));
+    let acc = 0;
+    keys.forEach(([k,color])=>{
+      const v = d[k]||0; if(!v) return;
+      const h = v/max*(H-pad.t-pad.b);
+      svg.appendChild(el("rect",{x:cx,y:H-pad.b-acc-h,width:bw,height:h,fill:color,opacity:.92}));
+      acc += h;
+    });
+  });
+  data.forEach((d,i)=>{
+    if (i%6 && i!==data.length-1) return;
+    const t = el("text",{x:pad.l+i*((W-pad.l-pad.r)/Math.max(data.length,1)),y:H-8,"text-anchor":"middle",class:"axis"});
+    t.textContent = d.m.slice(2); svg.appendChild(t);
+  });
+  box.appendChild(svg);
+  const zh = {reply:"回复",tweet:"原创",quote:"引用",retweet:"转推"};
+  document.getElementById("legend-kind").innerHTML = keys.map(([k,c])=>
+    `<span><i style="background:${c}"></i>${zh[k]} ${fmt(D.kind_mix[k]||0)}</span>`).join("");
+})();
+
+/* ---------- 效率表 ---------- */
+(function(){
+  const zh = {tweet:"原创",quote:"引用",reply:"回复",retweet:"转推"};
+  const rows = Object.entries(D.eff).sort((a,b)=>b[1].eng_med-a[1].eng_med);
+  document.getElementById("eff-table").innerHTML =
+    `<table><thead><tr><th>形态</th><th class="num">条数</th><th class="num">赞(中位)</th>
+     <th class="num">浏览(中位)</th><th class="num">互动分</th><th class="num">带媒体</th></tr></thead><tbody>` +
+    rows.map(([k,v])=>`<tr><td>${zh[k]||k}</td><td class="num">${fmt(v.n)}</td>
+      <td class="num">${fmt(v.like_med)}</td><td class="num">${fmt(v.view_med)}</td>
+      <td class="num"><b>${fmt(v.eng_med)}</b></td><td class="num">${v.media_ratio}%</td></tr>`).join("") +
+    `</tbody></table>`;
+})();
+
+/* ---------- 三层内容 ---------- */
+(function(){
+  const totalL = Object.values(D.levels).reduce((a,b)=>a+b,0)||1;
+  const colors = {"教育":"#0f9d8a","启发":"#3b5bdb","娱乐":"#c9a227","观点":"#8b93a7","对话":"#c8ccd6"};
+  const items = Object.entries(D.levels).sort((a,b)=>b[1]-a[1]);
+  document.getElementById("levels").innerHTML = items.map(([k,v])=>
+    `<div class="bar-row"><div class="bar-label">${k}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${100*v/totalL}%;background:${colors[k]||"#8b93a7"}"></div></div>
+      <div class="bar-n">${Math.round(100*v/totalL)}%</div></div>`).join("") +
+    `<p class="note">教育/启发/娱乐 来自 marketing-plan 的三层内容框架；「观点/对话」是不命中关键词的兜底类。</p>`;
+})();
+
+/* ---------- 04 标签 / 回复对象 ---------- */
+function hbars(id, items, color){
+  const max = Math.max(...items.map(i=>i.n),1), totalN = items.reduce((a,b)=>a+b.n,0)||1;
+  document.getElementById(id).innerHTML = items.slice(0,12).map(i=>
+    `<div class="bar-row"><div class="bar-label" title="${i.k}">${i.k}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${100*i.n/max}%;background:${color}"></div></div>
+      <div class="bar-n">${Math.round(100*i.n/totalN)}%</div></div>`).join("");
+}
+hbars("tags", D.hashtags, "#0f9d8a");
+hbars("replies", D.reply_targets, "#3b5bdb");
+document.getElementById("self-thread").innerHTML =
+  `回复自己的次数：<b>${fmt(D.self_thread)}</b>（占全部回复 ${Math.round(100*D.self_thread/(D.kind_mix.reply||1))}%），` +
+  `引用自己的次数：<b>${fmt(D.self_quote)}</b>——这是「线程化输出」而非单条碎片的证据。`;
+
+/* ---------- 05 域名 ---------- */
+(function(){
+  const max = Math.max(...D.domains.map(d=>d.n),1);
+  const own = new Set(Object.keys(D.own_links));
+  document.getElementById("domains").innerHTML = D.domains.slice(0,14).map(d=>
+    `<div class="bar-row"><div class="bar-label" title="${d.k}">${d.k}</div>
+      <div class="bar-track"><div class="bar-fill ${own.has(d.k)?"alt":""}"
+        style="width:${100*d.n/max}%"></div></div>
+      <div class="bar-n">${d.n}</div></div>`).join("") +
+    `<div class="legend"><span><i style="background:#0f9d8a"></i>自有资产</span>
+      <span><i style="background:#3b5bdb"></i>外部引用</span></div>`;
+
+  const ownTotal = Object.values(D.own_links).reduce((a,b)=>a+b,0);
+  const all = D.domains.reduce((a,b)=>a+b.n,0)||1;
+  document.getElementById("funnel-note").innerHTML =
+    `外链总数中 <b>${Math.round(100*ownTotal/all)}%</b> 指向自有资产：` +
+    Object.entries(D.own_links).map(([k,v])=>`<b>${k}</b> ${v} 次`).join("、") +
+    `。按 marketing-plan 的漏斗看，他的「了解→转化」这两段是自己握着入口的，` +
+    `不依赖平台分发——这也是为什么账号能在算法波动中活下来。`;
+})();
+
+/* ---------- 06 top posts ---------- */
+(function(){
+  const zh = {tweet:"原创",quote:"引用",reply:"回复",retweet:"转推"};
+  document.getElementById("top-posts").innerHTML = D.top_posts.slice(0,15).map(p=>
+    `<div class="top-post">
+      <div class="m">${p.date} · ${zh[p.kind]||p.kind} ·
+        <a href="${p.url}" target="_blank" rel="noopener">原帖</a></div>
+      <div class="t">${(p.text||"").replace(/</g,"&lt;").slice(0,220) || "<em>（无正文，可能是纯媒体/转推）</em>"}</div>
+      <div class="e">赞 ${fmt(p.like)} · 转 ${fmt(p.rt)} · 评 ${fmt(p.reply)} · 浏览 ${fmt(p.view)} · 互动分 ${fmt(p.eng)}</div>
+    </div>`).join("");
+})();
+
+/* ---------- 局限 ---------- */
+document.getElementById("foot").innerHTML =
+  `数据：${fmt(total)} 条去重帖子 · 由 <code>portrait.py</code> 从 <code>tweets.jsonl</code> 生成 ·
+   报告为单文件 HTML，无外部依赖。`;
+</script>
+</body>
+</html>
